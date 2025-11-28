@@ -37,7 +37,7 @@
         .cta-btn { background-color: var(--accent-color); color: #000; padding: 10px 25px; border-radius: 5px; font-weight: 700; transition: transform 0.3s; }
         .cta-btn:hover { transform: translateY(-2px); background-color: var(--accent-dark); color: #fff; }
 
-        /* Hamburger İkonu (Yeni Eklendi) */
+        /* Hamburger İkonu */
         .menu-toggle {
             display: none;
             font-size: 28px;
@@ -76,7 +76,7 @@
         footer { background-color: var(--primary-color); color: var(--white); padding: 60px 0 20px; margin-top: auto; }
         .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.9rem; color: #888; margin-top: 40px; }
 
-        /* MOBİL UYUMLULUK (HAMBURGER MENÜ EKLENDİ) */
+        /* MOBİL UYUMLULUK */
         @media (max-width: 768px) {
             .contact-grid { grid-template-columns: 1fr; }
             
@@ -87,9 +87,9 @@
                 background-color: var(--white);
                 flex-direction: column; align-items: center; gap: 20px; padding: 30px 0;
                 box-shadow: 0 10px 10px rgba(0,0,0,0.05);
-                display: none; /* Gizli başlar */
+                display: none; 
             }
-            .nav-links.active { display: flex; } /* JS ile açılır */
+            .nav-links.active { display: flex; }
         }
     </style>
 </head>
@@ -179,7 +179,7 @@
 
             <div class="map-container">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.0!2d28.36!3d37.16!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bf73c000000001%3A0x0!2sS%C4%B1tk%C4%B1%20Ko%C3%A7man%20Cd.!5e0!3m2!1str!2str!4v1620000000000!5m2!1str!2str" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d552.0130754601678!2d28.38497204833231!3d37.16601377983757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bf73d634bfa063%3A0xcf94f18bdcc50ec3!2sHouse%20Of%20Language%20Dil%20Okulu!5e1!3m2!1str!2str!4v1764325220312!5m2!1str!2str" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                 </iframe>
             </div>
@@ -196,13 +196,11 @@
     </footer>
 
     <script>
-        // Hamburger Menü Fonksiyonu
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         }
 
-        // WhatsApp Gönderme Fonksiyonu
         function sendToWhatsapp() {
             var name = document.getElementById("name").value;
             var phone = document.getElementById("phone").value;
