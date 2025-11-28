@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | House of Language</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- GENEL AYARLAR --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        :root {
+            --primary-color: #000000;
+            --accent-color: #fbbf24;
+            --accent-dark: #d97706;
+            --light-bg: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        /* Header */
+        header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary-color); }
+        .logo span { color: var(--accent-dark); }
+        
+        /* Nav Linkler (Buton kaldırıldığı için sağa hizalama daha şık durur diye margin ayarı) */
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--primary-color); transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-dark); }
+        
+        /* Buton stili (Form içindeki buton için lazım) */
+        .cta-btn { background-color: var(--accent-color); color: #000; padding: 10px 25px; border-radius: 5px; font-weight: 700; transition: transform 0.3s; }
+        .cta-btn:hover { transform: translateY(-2px); background-color: var(--accent-dark); color: #fff; }
+
+        /* --- İLETİŞİM STİLLERİ --- */
+        .page-header {
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .page-header p { color: #ccc; }
+
+        .contact-section { padding: 80px 0; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
+
+        .info-card { background: var(--white); padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); height: fit-content; border-top: 5px solid var(--accent-color); }
+        .info-item { display: flex; align-items: flex-start; margin-bottom: 25px; }
+        .info-icon { font-size: 24px; color: var(--accent-dark); margin-right: 15px; width: 30px; }
+        .info-text h3 { font-size: 1.1rem; margin-bottom: 5px; color: var(--primary-color); }
+        .info-text p { color: #666; font-size: 0.95rem; }
+
+        .form-card { background: var(--white); padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary-color); }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; transition: border-color 0.3s; }
+        .form-control:focus { outline: none; border-color: var(--accent-color); }
+
+        .map-container { margin-top: 50px; height: 400px; background-color: #e5e5e5; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        footer { background-color: var(--primary-color); color: var(--white); padding: 60px 0 20px; margin-top: auto; }
+        .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.9rem; color: #888; margin-top: 40px; }
+
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            nav { flex-direction: column; height: auto; padding: 20px 0; }
+            .nav-links { margin: 20px 0; flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">House of <span>Language</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="index.html#programs">Eğitimler</a></li>
+                    <li><a href="index.html#speaking">Speaking Club</a></li>
+                    <li><a href="iletisim.html" class="active">İletişim</a></li>
+                    </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Bize Ulaşın</h1>
+            <p>Muğla'nın kalbinde, dil öğrenmenin merkezindeyiz.</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <div class="info-card">
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <h3>Adresimiz</h3>
+                            <p>Kötekli Mah. Sıtkı Koçman Cad.<br>Baydur Apt. No:125/B<br>Menteşe / MUĞLA</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-text">
+                            <h3>İletişim & WhatsApp</h3>
+                            <p><strong>Cep:</strong> 0554 023 73 23</p>
+                            <p><strong>Sabit:</strong> 0252 223 73 23</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div class="info-text">
+                            <h3>Çalışma Saatleri</h3>
+                            <p>Haftanın her günü açığız.</p>
+                            <p>09:00 - 21:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-color);">Seni Arayalım?</h3>
+                    <p style="margin-bottom:20px; font-size:0.9rem; color:#666;">Formu doldur, bilgiler direkt WhatsApp üzerinden bize ulaşsın.</p>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>Adınız Soyadınız</label>
+                            <input type="text" id="name" class="form-control" placeholder="İsim Soyisim" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon Numaranız</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="05XX XXX XX XX" required>
+                        </div>
+                        <div class="form-group">
+                            <label>İlgilendiğiniz Eğitim</label>
+                            <select id="course" class="form-control">
+                                <option>Hazırlık Atlama</option>
+                                <option>Genel İngilizce</option>
+                                <option>Almanca / Rusça</option>
+                                <option>YDS / YÖK-DİL</option>
+                                <option>IELTS / TOEFL</option>
+                            </select>
+                        </div>
+                        <button type="button" onclick="sendToWhatsapp()" class="cta-btn" style="border:none; cursor:pointer; width:100%;">WhatsApp ile Gönder 🚀</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.0!2d28.36!3d37.16!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bf73c000000001%3A0x0!2sS%C4%B1tk%C4%B1%20Ko%C3%A7man%20Cd.!5e0!3m2!1str!2str!4v1620000000000!5m2!1str!2str" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                © 2024 House of Language - Muğla. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function sendToWhatsapp() {
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var course = document.getElementById("course").value;
+
+            if (name === "" || phone === "") {
+                alert("Lütfen isim ve telefon alanlarını doldurunuz.");
+                return;
+            }
+
+            var businessPhone = "905540237323"; 
+
+            var message = "Merhaba House of Language,\n" +
+                          "Benim adım: " + name + "\n" +
+                          "Telefonum: " + phone + "\n" +
+                          "İlgilendiğim Eğitim: " + course + "\n" +
+                          "Bilgi almak istiyorum.";
+
+            var encodedMessage = encodeURIComponent(message);
+            var whatsappUrl = "https://api.whatsapp.com/send?phone=" + businessPhone + "&text=" + encodedMessage;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
