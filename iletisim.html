@@ -26,17 +26,25 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
         
-        .logo { font-size: 24px; font-weight: 700; color: var(--primary-color); }
+        .logo { font-size: 20px; font-weight: 700; color: var(--primary-color); z-index: 1001; }
         .logo span { color: var(--accent-dark); }
         
-        /* Nav Linkler (Buton kaldırıldığı için sağa hizalama daha şık durur diye margin ayarı) */
-        .nav-links { display: flex; gap: 30px; }
+        /* Nav Linkler */
+        .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { font-weight: 500; color: var(--primary-color); transition: color 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent-dark); }
         
-        /* Buton stili (Form içindeki buton için lazım) */
         .cta-btn { background-color: var(--accent-color); color: #000; padding: 10px 25px; border-radius: 5px; font-weight: 700; transition: transform 0.3s; }
         .cta-btn:hover { transform: translateY(-2px); background-color: var(--accent-dark); color: #fff; }
+
+        /* Hamburger İkonu (Yeni Eklendi) */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--primary-color);
+            z-index: 1001;
+        }
 
         /* --- İLETİŞİM STİLLERİ --- */
         .page-header {
@@ -68,10 +76,20 @@
         footer { background-color: var(--primary-color); color: var(--white); padding: 60px 0 20px; margin-top: auto; }
         .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.9rem; color: #888; margin-top: 40px; }
 
+        /* MOBİL UYUMLULUK (HAMBURGER MENÜ EKLENDİ) */
         @media (max-width: 768px) {
             .contact-grid { grid-template-columns: 1fr; }
-            nav { flex-direction: column; height: auto; padding: 20px 0; }
-            .nav-links { margin: 20px 0; flex-direction: column; text-align: center; }
+            
+            .menu-toggle { display: block; }
+
+            .nav-links {
+                position: absolute; top: 80px; left: 0; width: 100%;
+                background-color: var(--white);
+                flex-direction: column; align-items: center; gap: 20px; padding: 30px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                display: none; /* Gizli başlar */
+            }
+            .nav-links.active { display: flex; } /* JS ile açılır */
         }
     </style>
 </head>
@@ -81,12 +99,15 @@
         <div class="container">
             <nav>
                 <div class="logo">House of <span>Language</span></div>
+                
+                <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
                 <ul class="nav-links">
-                    <li><a href="index.html">Anasayfa</a></li>
-                    <li><a href="index.html#programs">Eğitimler</a></li>
-                    <li><a href="index.html#speaking">Speaking Club</a></li>
+                    <li><a href="./">Anasayfa</a></li>
+                    <li><a href="./#programs">Eğitimler</a></li>
+                    <li><a href="./#speaking">Speaking Club</a></li>
                     <li><a href="iletisim.html" class="active">İletişim</a></li>
-                    </ul>
+                </ul>
             </nav>
         </div>
     </header>
@@ -175,6 +196,13 @@
     </footer>
 
     <script>
+        // Hamburger Menü Fonksiyonu
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // WhatsApp Gönderme Fonksiyonu
         function sendToWhatsapp() {
             var name = document.getElementById("name").value;
             var phone = document.getElementById("phone").value;
